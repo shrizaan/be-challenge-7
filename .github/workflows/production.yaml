@@ -1,4 +1,4 @@
-name: Deploy to GCP App Engine (Chapter 5)
+name: Deploy to production
 
 on:
   workflow_dispatch:
