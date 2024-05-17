@@ -1,7 +1,12 @@
 const express = require("express");
 
 const router = express.Router();
-const { login, googleLogin, register } = require("../controller/auth/authUser");
+const {
+  login,
+  googleLogin,
+  register,
+  profile,
+} = require("../controller/auth/authUser");
 const { validationHandler } = require("../middleware");
 const {
   userLoginSchema,
@@ -10,6 +15,7 @@ const {
 } = require("../validations");
 // const { authMiddleware } = require("../middleware/auth");
 
+router.get("/profile", profile);
 router.post("/register", validationHandler(userRegisterSchema), register);
 router.post("/login", validationHandler(userLoginSchema), login);
 router.post(
@@ -17,4 +23,5 @@ router.post(
   validationHandler(userGoogleLoginSchema),
   googleLogin,
 );
+
 module.exports = router;
